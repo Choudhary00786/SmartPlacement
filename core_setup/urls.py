@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('student/', include('placement_app.urls')),
+    path('', include('placement_app.urls')),  # 'student/' hata kar '' kar diya hai
 ]
