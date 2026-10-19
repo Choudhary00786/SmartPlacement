@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NIT Warangal | Notifications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#f0f4f8] font-sans flex h-screen overflow-hidden">
+    <aside class="w-64 bg-[#0f172a] text-slate-300 flex flex-col h-full shadow-2xl">
+        <div class="p-6 border-b border-slate-800">
+            <h1 class="text-white text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-blue-500"></i> NIT Warangal</h1>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-2">
+            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="/student/profile/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="/student/applications/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-file-lines"></i> My Applications</a>
+            <a href="/student/assessments/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-clipboard-question"></i> Assessments</a>
+            <a href="/student/notifications/" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg"><i class="fa-solid fa-bell"></i> Notifications</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-8 overflow-y-auto">
+        <h2 class="text-2xl font-bold text-slate-800 mb-6">Placement Cell Announcements</h2>
+        <div class="space-y-4 max-w-3xl">
+            <div class="bg-white p-5 rounded-xl border border-blue-200 shadow-sm">
+                <span class="text-xs text-blue-600 font-bold uppercase">Placement Notice</span>
+                <h3 class="font-bold text-slate-800 mt-1">Deloitte Drive Deadline Extended</h3>
+                <p class="text-sm text-slate-600 mt-1">Deloitte recruitment drive application deadline has been extended to 22nd October 2026.</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl border shadow-sm">
+                <span class="text-xs text-slate-400 font-bold uppercase">General Announcement</span>
+                <h3 class="font-bold text-slate-800 mt-1">Resume Verification Portal Open</h3>
+                <p class="text-sm text-slate-600 mt-1">All final year students are requested to verify their CGPA and resume before applying to drives.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

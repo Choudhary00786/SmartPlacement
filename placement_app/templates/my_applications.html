@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NIT Warangal | My Applications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#f0f4f8] font-sans flex h-screen overflow-hidden">
+    <aside class="w-64 bg-[#0f172a] text-slate-300 flex flex-col h-full shadow-2xl">
+        <div class="p-6 border-b border-slate-800">
+            <h1 class="text-white text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-blue-500"></i> NIT Warangal</h1>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-2">
+            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="/student/profile/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="/student/applications/" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg"><i class="fa-solid fa-file-lines"></i> My Applications</a>
+            <a href="/student/assessments/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-clipboard-question"></i> Assessments</a>
+            <a href="/student/notifications/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-bell"></i> Notifications</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-8 overflow-y-auto">
+        <h2 class="text-2xl font-bold text-slate-800 mb-6">Applied Placement Drives (Fetched via SQL JOIN)</h2>
+        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-slate-100 border-b text-xs text-slate-600 uppercase">
+                    <tr>
+                        <th class="p-4">Company</th>
+                        <th class="p-4">Role</th>
+                        <th class="p-4">Package</th>
+                        <th class="p-4">Status</th>
+                        <th class="p-4">Applied Date</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y text-sm text-slate-700">
+                    {% for app in applications %}
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 font-bold text-blue-900">{{ app.company_name }}</td>
+                        <td class="p-4">{{ app.job_role }}</td>
+                        <td class="p-4">{{ app.package_lpa }} LPA</td>
+                        <td class="p-4"><span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold">{{ app.status }}</span></td>
+                        <td class="p-4">{{ app.applied_on|date:"d M Y, h:i A" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="p-8 text-center text-slate-500">Aapne abhi tak kisi drive me apply nahi kiya hai.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

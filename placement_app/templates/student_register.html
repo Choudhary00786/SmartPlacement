@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT Warangal | Student Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#f0f4f8] font-sans flex h-screen overflow-hidden">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="w-64 bg-[#0f172a] text-slate-300 flex flex-col h-full shadow-2xl">
+        <div class="p-6 border-b border-slate-800">
+            <h1 class="text-white text-xl font-bold tracking-wider flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-blue-500"></i>
+                NIT Warangal
+            </h1>
+            <p class="text-xs text-slate-400 mt-1">Smart Placement Portal</p>
+        </div>
+        
+        <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+            <a href="/student/register/student/" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg transition-colors">
+                <i class="fa-solid fa-user-plus"></i> Student Reg
+            </a>
+            <a href="/student/register/company/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+                <i class="fa-solid fa-building"></i> Company Reg
+            </a>
+            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+                <i class="fa-solid fa-briefcase"></i> Job Drives
+            </a>
+            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+                <i class="fa-solid fa-file-lines"></i> Applications
+            </a>
+        </nav>
+        
+        <div class="p-4 border-t border-slate-800">
+            <a href="/admin/login/" class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white transition-colors">
+                <i class="fa-solid fa-right-to-bracket"></i> Admin / Portal Login
+            </a>
+        </div>
+    </aside>
+
+    <!-- RIGHT CONTENT AREA -->
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto">
+        
+        <!-- TOP HEADER -->
+        <header class="bg-white shadow-sm h-16 flex items-center justify-between px-8 sticky top-0 z-10">
+            <div>
+                <h2 class="text-xl font-semibold text-slate-800">Student Onboarding</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/student/dashboard/" class="text-sm font-medium text-slate-600 hover:text-blue-600">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Back to Dashboard
+                </a>
+            </div>
+        </header>
+
+        <!-- FORM CONTENT AREA -->
+        <div class="p-8 flex justify-center items-center flex-1">
+            <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-xl border border-slate-200">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-blue-900 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-user-graduate text-blue-600"></i> Student Registration
+                    </h3>
+                    <p class="text-slate-500 text-sm mt-1">Fill student details into Placement Database</p>
+                </div>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="text-red-600 bg-red-50 border border-red-200 p-3 rounded-lg mb-4 text-sm">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <form method="POST" class="space-y-4">
+                    {% csrf_token %}
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Full Name</label>
+                            <input type="text" name="first_name" placeholder="Rahul Sharma" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Roll No / Username</label>
+                            <input type="text" name="username" placeholder="21CS8001" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">College Email</label>
+                        <input type="email" name="email" placeholder="student@student.nitw.ac.in" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Password</label>
+                        <input type="password" name="password" placeholder="••••••••" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Program / Degree</label>
+                            <select name="course" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white text-sm">
+                                <option value="" disabled selected>Select Program</option>
+                                <option value="B.Tech">B.Tech</option>
+                                <option value="M.Tech">M.Tech</option>
+                                <option value="MCA">MCA</option>
+                                <option value="MBA">MBA</option>
+                                <option value="M.Sc">M.Sc</option>
+                                <option value="Ph.D">Ph.D</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Department / Branch</label>
+                            <select name="branch" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white text-sm">
+                                <option value="" disabled selected>Select Branch</option>
+                                <option value="CSE">Computer Science & Engg (CSE)</option>
+                                <option value="ECE">Electronics & Comm Engg (ECE)</option>
+                                <option value="EEE">Electrical & Electronics Engg (EEE)</option>
+                                <option value="MECH">Mechanical Engg (MECH)</option>
+                                <option value="CIVIL">Civil Engg (CIVIL)</option>
+                                <option value="CHEM">Chemical Engg (CHEM)</option>
+                                <option value="BIOTECH">Biotechnology (BIOTECH)</option>
+                                <option value="MME">Metallurgical & Materials (MME)</option>
+                                <option value="MATH">Mathematics & Scientific Comp</option>
+                                <option value="SOM">School of Management (SOM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Current CGPA</label>
+                        <input type="number" step="0.01" min="0" max="10" name="cgpa" placeholder="e.g. 8.5" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-lg transition-colors text-sm shadow-md">
+                        Register Student Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
