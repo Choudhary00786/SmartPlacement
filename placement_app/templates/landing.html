@@ -21,8 +21,8 @@
                     <p class="text-xs text-blue-300">Centre for Career Planning and Development</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
-                <a href="/admin/login/" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors shadow-md">
+            <div class="flex items-center gap-6">
+                <a href="{% url 'login' %}" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors shadow-md">
                     <i class="fa-solid fa-right-to-bracket mr-2"></i> Portal Login
                 </a>
             </div>
@@ -42,52 +42,68 @@
         </p>
 
         <!-- REGISTRATION & ACCESS CARDS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 text-left">
             
             <!-- CARD 1: STUDENT REGISTRATION -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                         <i class="fa-solid fa-user-graduate"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Student Portal</h3>
-                    <p class="text-slate-500 text-sm mb-6">First time here? Register your student profile (B.Tech, M.Tech, MCA, MBA) to access active recruitment drives.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Student Portal</h3>
+                    <p class="text-slate-500 text-sm mb-6">Register your profile (B.Tech, M.Tech, MCA) to access active drives.</p>
                 </div>
-                <div class="space-y-3">
-                    <a href="/student/register/student/" class="block text-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors shadow-sm">
+                <div>
+                    <a href="{% url 'student_register' %}" class="block text-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition-colors text-sm">
                         Student Registration
                     </a>
                 </div>
             </div>
 
             <!-- CARD 2: COMPANY REGISTRATION -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-purple-600 group-hover:text-white transition-colors">
                         <i class="fa-solid fa-building"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Recruiter Onboarding</h3>
-                    <p class="text-slate-500 text-sm mb-6">Are you a recruiting partner? Register your organization to post job drives and conduct campus hiring at NITW.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Recruiter Portal</h3>
+                    <p class="text-slate-500 text-sm mb-6">Register your organization to conduct campus hiring at NITW.</p>
                 </div>
-                <div class="space-y-3">
-                    <a href="/student/register/company/" class="block text-center w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition-colors shadow-sm">
+                <div>
+                    <a href="{% url 'company_register' %}" class="block text-center w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-xl transition-colors text-sm">
                         Company Registration
                     </a>
                 </div>
             </div>
 
-            <!-- CARD 3: PORTAL LOGIN -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <!-- CARD 3: USER LOGIN -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                         <i class="fa-solid fa-lock"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Existing Users</h3>
-                    <p class="text-slate-500 text-sm mb-6">Already registered as a Student or Placement Officer? Sign in to manage job drives, profiles, and applications.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Existing Users</h3>
+                    <p class="text-slate-500 text-sm mb-6">Already registered? Sign in to manage profiles and applications.</p>
                 </div>
-                <div class="space-y-3">
-                    <a href="/admin/login/" class="block text-center w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 rounded-xl transition-colors shadow-sm">
+                <div>
+                    <a href="{% url 'login' %}" class="block text-center w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-xl transition-colors text-sm">
                         Login to Portal
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 4: ADMIN / TPO LOGIN -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Admin / TPO</h3>
+                    <p class="text-slate-500 text-sm mb-6">Placement officers can log in here to manage the entire system.</p>
+                </div>
+                <div>
+                    <a href="{% url 'login' %}" class="block text-center w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl transition-colors text-sm">
+                        Admin Login
                     </a>
                 </div>
             </div>
@@ -95,7 +111,7 @@
         </div>
 
         <!-- STATS BANNER -->
-        <div class="mt-16 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="mt-12 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
                 <p class="text-3xl font-extrabold text-blue-900">1,250+</p>
                 <p class="text-xs text-slate-500 font-medium mt-1">Active Students</p>

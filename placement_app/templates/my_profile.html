@@ -14,12 +14,17 @@
             <p class="text-xs text-slate-400 mt-1">Smart Placement Portal</p>
         </div>
         <nav class="flex-1 px-4 py-6 space-y-2">
-            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-house"></i> Dashboard</a>
-            <a href="/student/profile/" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg"><i class="fa-regular fa-user"></i> My Profile</a>
-            <a href="/student/applications/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-file-lines"></i> My Applications</a>
-            <a href="/student/assessments/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-clipboard-question"></i> Assessments</a>
-            <a href="/student/notifications/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-bell"></i> Notifications</a>
+            <a href="{% url 'student_dashboard' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="{% url 'my_profile' %}" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="{% url 'my_applications' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-file-lines"></i> My Applications</a>
+            <a href="{% url 'assessments' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-clipboard-question"></i> Assessments</a>
+            <a href="{% url 'notifications' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg"><i class="fa-solid fa-bell"></i> Notifications</a>
         </nav>
+        <div class="p-4 border-t border-slate-800">
+            <a href="{% url 'logout' %}" class="flex items-center gap-3 px-4 py-2 text-red-400 hover:text-red-300 transition-colors">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->

@@ -2,11 +2,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Main Landing Page (Peheli baar aane walon ke liye)
     path('', views.landing_page, name='landing_page'),
-    
-    # Dashboard & Registration Routes
     path('dashboard/', views.student_dashboard, name='student_dashboard'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
     path('register/student/', views.student_register, name='student_register'),
     path('register/company/', views.company_register, name='company_register'),
     path('profile/', views.my_profile, name='my_profile'),

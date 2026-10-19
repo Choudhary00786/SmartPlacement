@@ -20,29 +20,29 @@
         </div>
         
         <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg transition-colors">
+            <a href="{% url 'student_dashboard' %}" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg transition-colors">
                 <i class="fa-solid fa-house"></i> Dashboard
             </a>
-            <a href="/student/profile/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+            <a href="{% url 'my_profile' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
                 <i class="fa-regular fa-user"></i> My Profile
             </a>
-            <a href="/student/dashboard/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+            <a href="{% url 'student_dashboard' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
                 <i class="fa-solid fa-briefcase"></i> Job Drives
             </a>
-            <a href="/student/applications/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+            <a href="{% url 'my_applications' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
                 <i class="fa-solid fa-file-lines"></i> My Applications
             </a>
-            <a href="/student/assessments/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+            <a href="{% url 'assessments' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
                 <i class="fa-solid fa-clipboard-question"></i> Assessments
             </a>
-            <a href="/student/notifications/" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+            <a href="{% url 'notifications' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
                 <i class="fa-solid fa-bell"></i> Notifications
             </a>
         </nav>
         
         <div class="p-4 border-t border-slate-800">
-            <a href="/admin/login/" class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white transition-colors">
-                <i class="fa-solid fa-right-from-bracket"></i> Admin / Portal Login
+            <a href="{% url 'logout' %}" class="flex items-center gap-3 px-4 py-2 text-red-400 hover:text-red-300 transition-colors">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
             </a>
         </div>
     </aside>
@@ -57,10 +57,10 @@
             </div>
             <div class="flex items-center gap-6">
                 <div class="flex gap-4 border-r pr-6 border-gray-200">
-                    <a href="/student/register/student/" class="text-sm font-medium text-blue-600 hover:text-blue-800 bg-blue-50 px-3 py-1.5 rounded-md border border-blue-100">
+                    <a href="{% url 'student_register' %}" class="text-sm font-medium text-blue-600 hover:text-blue-800 bg-blue-50 px-3 py-1.5 rounded-md border border-blue-100">
                         <i class="fa-solid fa-user-plus mr-1"></i> Student Reg
                     </a>
-                    <a href="/student/register/company/" class="text-sm font-medium text-purple-600 hover:text-purple-800 bg-purple-50 px-3 py-1.5 rounded-md border border-purple-100">
+                    <a href="{% url 'company_register' %}" class="text-sm font-medium text-purple-600 hover:text-purple-800 bg-purple-50 px-3 py-1.5 rounded-md border border-purple-100">
                         <i class="fa-solid fa-building mr-1"></i> Company Reg
                     </a>
                 </div>
@@ -114,7 +114,7 @@
                         <p class="text-sm text-slate-600"><i class="fa-regular fa-clock w-5 text-slate-400"></i> <span class="font-medium">Deadline:</span> {{ drive.deadline|date:"d M Y" }}</p>
                     </div>
                     
-                    <a href="/student/apply/{{ drive.id }}/" class="block text-center w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition-colors">
+                    <a href="{% url 'apply_job' drive.id %}" class="block text-center w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition-colors">
                         Apply Now
                     </a>
                 </div>
